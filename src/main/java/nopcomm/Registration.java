@@ -47,13 +47,13 @@ public class Registration extends Utils {
         enterText((By.xpath("//input[@name='LastName']")), loadProps.getProperty("LastName"));
 
         //enter date of birth
-       // Select select = new Select(driver.findElement(By.name("DateOfBirthDay")));
+        // Select select = new Select(driver.findElement(By.name("DateOfBirthDay")));
         //select.selectByVisibleText("5");
         selectByVisibleText(By.name("DateOfBirthDay"),"15");
 
         //Enter date of month
-       // Select select = new Select(driver.findElement(By.name("DateOfBirthMonth")));
-       // select.selectByVisibleText("March");
+        // Select select = new Select(driver.findElement(By.name("DateOfBirthMonth")));
+        // select.selectByVisibleText("March");
         selectByVisibleText(By.name("DateOfBirthMonth"),"May");
 
         // Enter year of birth
@@ -140,9 +140,11 @@ public class Registration extends Utils {
         //click on camera and photo button
         clickElement(By.xpath("//h2/a[@title=\"Show products in category Camera & photo\"]"));
 
-        //String ActualMassage = "Camera & photo";
-        //String ExpectedMassage = driver.findElement(By.xpath("//h1")).getText();
-        //Assert.assertEquals(ExpectedMassage, ActualMassage);
+        //Assertion
+        findAssertEquals(By.xpath("//h1"),"Camera & photo");
+        //  String ActualMessage = "Camera & photo";
+        //  String ExpectedMessage = driver.findElement(By.xpath("//h1")).getText();
+        //  Assert.assertEquals(ExpectedMessage, ActualMessage);
     }
     @Test(priority = 4)
     public void userShouldBeAbleAddProductFromBookCategory() {
@@ -168,11 +170,13 @@ public class Registration extends Utils {
         //click on shopping cart
         clickElement(By.xpath("//span[@class=\"cart-label\"]"));
 
+        //Assertion
+        findAssertEquals(By.xpath("//span[@class=\"cart-label\"]"),"Shopping cart");
         //String ActualMassage = "Shopping cart";
         //String ExpectedMassage = driver.findElement(By.xpath("//span[@class=\"cart-label\"]")).getText();
         //Assert.assertEquals(ExpectedMassage, ActualMassage);
     }
-    @Test(priority = 5)
+   @Test(priority = 5)
     public void userShouldBeAbleToSelectTheJewelleryProduct() {
 
         //click on register button
@@ -187,13 +191,15 @@ public class Registration extends Utils {
         //select price limit
         clickElement(By.xpath("//a[contains(@href,\"700-3000\")]"));
 
+        //Assertion
+       findAssertEquals(By.xpath("//span[@class='item']"),"$700.00 - $3,000.00");
         //check the Expected result
-        String Expectedresult = "$700.00 - $3,000.00";
+        //  String Expectedresult = "$700.00 - $3,000.00";
 
         //check the Actual result
-        //String Actualresult = driver.findElement(By.xpath("//span[@class='item']")).getText();
+        //  String Actualresult = driver.findElement(By.xpath("//span[@class='item']")).getText();
         //compare the result
-        //Assert.assertEquals(Actualresult, Expectedresult);
+        //  Assert.assertEquals(Actualresult, Expectedresult);
         //String Productprice = driver.findElement(By.xpath("//span[@class='price actual-price']")).getText();
         //String price1 = String.valueOf(Productprice.replace("$", ""));
         //String price2 = String.valueOf(price1.replace(",", ""));

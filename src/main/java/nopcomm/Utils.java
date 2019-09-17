@@ -5,6 +5,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.seleniumhq.jetty9.util.IO;
+import org.testng.Assert;
 
 import java.io.File;
 import java.io.IOException;
@@ -119,6 +120,13 @@ public class Utils extends BasePage {
         DateFormat format = new SimpleDateFormat("ddMMyyHHmmss");
         return format.format(new Date());
     }
+    //Assert Equal
+    public void findAssertEquals(By by,String text){
+        String ActualMessage = text;
+        String ExpectedMessage = driver.findElement(by).getText();
+        Assert.assertEquals(ExpectedMessage, ActualMessage);
+    }
+
 
 
 
